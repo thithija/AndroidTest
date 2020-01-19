@@ -1,6 +1,7 @@
 package com.example.myfb.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.nfc.Tag;
@@ -27,6 +28,8 @@ public class Mydatabase extends SQLiteOpenHelper {
     private static final String CREATE_STUDENT_TABLE = "CREATE TABLE "+STUDENT_TABLE+"("+STUDENT_NAME+" VARCHAR (120) ,"+STUDENT_AGE+" INTEGER ,"+STUDENT_MARKS+" INTEGER );";
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS " +STUDENT_TABLE;
 
+    private static final String SELECT_STUDENT = "SELECT * FROM "+STUDENT_TABLE;
+
     public Mydatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -51,4 +54,8 @@ public class Mydatabase extends SQLiteOpenHelper {
         return 0;
     }
 
+    public void getAllStudent(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery(SELECT_STUDENT,null);
+    }
 }
