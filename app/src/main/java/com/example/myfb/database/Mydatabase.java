@@ -57,5 +57,11 @@ public class Mydatabase extends SQLiteOpenHelper {
     public void getAllStudent(){
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery(SELECT_STUDENT,null);
+
+        if (cursor.moveToFirst()){
+            do {
+
+            }
+        }
     }
 }
