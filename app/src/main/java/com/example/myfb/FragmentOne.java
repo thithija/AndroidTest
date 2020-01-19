@@ -9,15 +9,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.myfb.database.Mydatabase;
+
+import static com.example.myfb.database.Mydatabase.DB_NAME;
+import static com.example.myfb.database.Mydatabase.DB_VERSION;
+
 public class FragmentOne extends Fragment {
+
+    Mydatabase dataBaseManager;
+
     public static FragmentOne newInstance(){
         FragmentOne fragmentOne=new FragmentOne();
         return fragmentOne;
 
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_one, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        dataBaseManager = new Mydatabase(getContext(),DB_NAME,null,DB_VERSION);
+
     }
 }
