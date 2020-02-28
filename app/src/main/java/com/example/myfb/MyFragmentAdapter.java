@@ -14,13 +14,12 @@ public class MyFragmentAdapter extends FragmentPagerAdapter {
             case 0 : return FragmentOne.newInstance();
             case 1 : return FragmentTwo.newInstance();
             case 2 : return FragmentThree.newInstance();
-            case 3 : return FragmentFour.newInstance();
             default: return FragmentOne.newInstance();
         }
     }
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Nullable
